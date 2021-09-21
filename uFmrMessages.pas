@@ -17,11 +17,11 @@ type
     lblMensagem: TLabel;
     lblTempo: TLabel;
     Bevel1: TBevel;
-    btn1: TSpeedButton;
     btn2: TSpeedButton;
+    btn1: TSpeedButton;
     Timer1: TTimer;
-    procedure btn2Click(Sender: TObject);
     procedure btn1Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
@@ -43,8 +43,7 @@ implementation
 
 { TfmrMensagem }
 
-function TfmrMensagem.Mensagem(Titulo, Text: string; Tipo: TTipo;
-  Tempo: integer): TModalResult;
+function TfmrMensagem.Mensagem(Titulo, Text: string; Tipo: TTipo): TModalResult;
 begin
   tipoMensagem := Tipo;
   if(Tipo = msgOk) or (Tipo = msgSimNao) then
@@ -71,19 +70,17 @@ begin
   lblTempo.Visible := false;
 end;
 
+procedure TfmrMensagem.btn2Click(Sender: TObject);
+begin
+  ModalResult := mrYes;
+end;
+
 procedure TfmrMensagem.btn1Click(Sender: TObject);
 begin
   if tipoMensagem = msgOk then
     Close
   else
     ModalResult := mrNo;
-
-end;
-
-procedure TfmrMensagem.btn2Click(Sender: TObject);
-begin
-  ModalResult := mrYes;
-
 end;
 
 procedure TfmrMensagem.FormShow(Sender: TObject);
@@ -93,7 +90,7 @@ begin
 
 end;
 
-function TfmrMensagem.Mensagem(Titulo, Text: string; Tipo: TTipo): TModalResult;
+function TfmrMensagem.Mensagem(Titulo, Text: string; Tipo: TTipo; Tempo: integer): TModalResult;
 begin
   lblTempo.Caption := 'Esta janela será fechada automaticamente em ' +
     IntToStr(Tempo) + ' segundos';
@@ -106,7 +103,7 @@ end;
 procedure TfmrMensagem.Timer1Timer(Sender: TObject);
 begin
   dec(Self.tempo);
-  lblTempo.Caption := 'Esta janela será fechada automaticamente em' +
+  lblTempo.Caption := 'Esta janela será fechada automaticamente em ' +
     IntToStr(Tempo);
   if (Tempo > 1) then
     lblTempo.Caption := lblTempo.Caption + ' segundos'

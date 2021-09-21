@@ -7,6 +7,7 @@ inherited fmrMensagem: TfmrMensagem
   Position = poDefault
   WindowState = wsMaximized
   OnShow = FormShow
+  ExplicitLeft = -157
   ExplicitWidth = 865
   ExplicitHeight = 364
   PixelsPerInch = 96
@@ -32,6 +33,7 @@ inherited fmrMensagem: TfmrMensagem
     Width = 838
     Height = 343
     Align = alNone
+    Anchors = []
     Color = clBlack
     Font.Color = clWhite
     ParentFont = False
@@ -96,6 +98,7 @@ inherited fmrMensagem: TfmrMensagem
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
+      Visible = False
     end
     object Bevel1: TBevel
       Left = 16
@@ -104,11 +107,11 @@ inherited fmrMensagem: TfmrMensagem
       Height = 7
       Shape = bsTopLine
     end
-    object btn1: TSpeedButton
-      Left = 440
+    object btn2: TSpeedButton
+      Left = 496
       Top = 284
       Width = 120
-      Height = 22
+      Height = 40
       Caption = 'Sim'
       Flat = True
       Font.Charset = ANSI_CHARSET
@@ -117,13 +120,13 @@ inherited fmrMensagem: TfmrMensagem
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btn1Click
+      OnClick = btn2Click
     end
-    object btn2: TSpeedButton
-      Left = 592
+    object btn1: TSpeedButton
+      Left = 666
       Top = 284
       Width = 120
-      Height = 22
+      Height = 40
       Caption = 'N'#227'o'
       Flat = True
       Font.Charset = ANSI_CHARSET
@@ -132,7 +135,7 @@ inherited fmrMensagem: TfmrMensagem
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btn2Click
+      OnClick = btn1Click
     end
   end
   object Timer1: TTimer
