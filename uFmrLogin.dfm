@@ -18,6 +18,7 @@ inherited fmrLogin: TfmrLogin
     Height = 403
     Align = alClient
     ExplicitWidth = 500
+    ExplicitHeight = 403
   end
   inherited pnlFooter: TPanel
     Top = 403
@@ -68,7 +69,7 @@ inherited fmrLogin: TfmrLogin
     end
     object Label3: TLabel
       Left = 24
-      Top = 164
+      Top = 178
       Width = 157
       Height = 25
       Caption = 'Nome do Usuario: '
@@ -81,7 +82,7 @@ inherited fmrLogin: TfmrLogin
     end
     object Label4: TLabel
       Left = 24
-      Top = 208
+      Top = 232
       Width = 148
       Height = 25
       Caption = 'Senha de acesso: '
@@ -95,7 +96,7 @@ inherited fmrLogin: TfmrLogin
     object Bevel1: TBevel
       Left = 24
       Top = 151
-      Width = 50
+      Width = 420
       Height = 7
       Shape = bsTopLine
     end
@@ -131,8 +132,8 @@ inherited fmrLogin: TfmrLogin
     end
     object edtNome: TEdit
       Left = 240
-      Top = 161
-      Width = 121
+      Top = 175
+      Width = 204
       Height = 33
       BevelInner = bvNone
       BevelOuter = bvNone
@@ -144,12 +145,12 @@ inherited fmrLogin: TfmrLogin
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      TextHint = 'Nome'
+      TextHint = ' Nome'
     end
     object edtSenha: TEdit
       Left = 240
-      Top = 205
-      Width = 121
+      Top = 229
+      Width = 204
       Height = 33
       BevelInner = bvNone
       BevelOuter = bvNone
@@ -161,7 +162,7 @@ inherited fmrLogin: TfmrLogin
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      TextHint = 'Senha'
+      TextHint = ' Senha'
     end
   end
 end

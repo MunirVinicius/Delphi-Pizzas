@@ -6,7 +6,8 @@ uses
   uFmrSon in 'uFmrSon.pas' {FmrMain},
   uFmrOpening in 'uFmrOpening.pas' {fmrAbertura},
   uFmrMessages in 'uFmrMessages.pas' {fmrMensagem},
-  uFmrLogin in 'uFmrLogin.pas' {fmrLogin};
+  uFmrLogin in 'uFmrLogin.pas' {fmrLogin},
+  uDmDados in 'uDmDados.pas' {dmDados: TDataModule};
 
 {$R *.res}
 
@@ -17,6 +18,7 @@ begin
   Application.CreateForm(TfmrAbertura, fmrAbertura);
   Application.CreateForm(TfmrMensagem, fmrMensagem);
   Application.CreateForm(TfmrLogin, fmrLogin);
+  Application.CreateForm(TdmDados, dmDados);
   fmrAbertura.ShowModal;
   fmrLogin.ShowModal;
   Application.Run;

@@ -120,6 +120,11 @@
             <Form>fmrLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="uDmDados.pas">
+            <Form>dmDados</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

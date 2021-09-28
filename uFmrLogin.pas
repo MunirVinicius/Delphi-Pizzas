@@ -26,6 +26,7 @@ type
   private
     { Private declarations }
     logou : boolean;
+    nVezes : integer;
   public
     { Public declarations }
   end;
@@ -37,6 +38,8 @@ implementation
 
 {$R *.dfm}
 
+uses uDmDados, uFmrMessages;
+
 procedure TfmrLogin.btnCancelarClick(Sender: TObject);
 begin
   Close;
@@ -44,8 +47,33 @@ end;
 
 procedure TfmrLogin.btnEntrarClick(Sender: TObject);
 begin
-  logou := true;
-  Close;
+
+  with dmDados do
+  begin
+    qryLogin.Close;
+
+    qryLogin.ParamByName('Nome').Value := edtNome.Text;
+    qryLogin.ParamByName('Senha').Value := edtSenha.Text;
+
+    qryLogin.Open;
+
+    if (qryLogin.IsEmpty) then
+    begin
+      dec(nVezes);
+      fmrMensagem.Mensagem('Acesso Negado!',
+        'Nome do usuario ou Senha invalidos!' + #13 +
+        'Numero de tentativas restantes: ' + IntToStr(nVezes), msgErro, 15);
+
+      if (nVezes = 0) then
+        btnCancelar.Click;
+    end
+    else
+    begin
+      logou := true;
+      qryLogin.Close;
+      Close;
+    end;
+  end;
 end;
 
 procedure TfmrLogin.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -65,6 +93,7 @@ end;
 procedure TfmrLogin.FormShow(Sender: TObject);
 begin
   logou := false;
+  nVezes := 3;
   pnlMain.Left := (Self.Width - pnlMain.Width) div 2;
   pnlMain.Top := (Self.Height - pnlMain.Height) div 2;
 end;
